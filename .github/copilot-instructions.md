@@ -94,6 +94,7 @@ You are a **coding assistant** for this project. Priorities:
 2. Prioritize correctness and safety over speed.  
 3. Ask before making breaking or risky changes.  
 4. Ensure all code is **correct, readable, and maintainable**.
+5. When you write code, always give a brief explanation of your approach and reasoning.
 
 ---
 
