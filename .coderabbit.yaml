@@ -1,0 +1,33 @@
+version: 1
+
+reviews:
+  enabled: true
+
+checks:
+  - name: Spec Alignment
+    description: Ensure all code changes align with specs/
+    rules:
+      - No implementation code without corresponding spec updates
+      - API contracts must match specs/technical.md
+      - Skills must follow defined input/output contracts
+
+  - name: Security & Safety
+    description: Prevent unsafe agent behavior
+    rules:
+      - No hardcoded secrets or tokens
+      - No network calls outside approved skills
+      - No self-modifying or self-deploying logic
+
+  - name: Governance
+    description: Enforce human-in-the-loop requirements
+    rules:
+      - Publishing actions require approval state
+      - High-risk actions must be gated
+      - MCP logging must be present for external actions
+
+style:
+  comment_style: concise
+  severity_labels:
+    - blocking
+    - warning
+    - suggestion
