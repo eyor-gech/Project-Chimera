@@ -24,3 +24,8 @@ lint:
 spec-check:
 	test -d specs || (echo "❌ specs/ directory missing" && exit 1)
 	@echo "✅ specs/ directory present"
+
+.PHONY: run
+run:
+	docker run --rm -it $(IMAGE_NAME)
+
