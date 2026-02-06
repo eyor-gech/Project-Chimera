@@ -1,20 +1,57 @@
 # Project Chimera — Context Rules
 
-## Project Identity
-This repository is Project Chimera: an autonomous influencer system built using Spec-Driven Development (SDD).
+## 1. Project Identity
+This repository is Project Chimera: an autonomous influencer system built using Spec-Driven Development (SDD).  
+Purpose:
+- Identify trending topics from approved platforms
+- Generate platform-appropriate content
+- Ensure all content passes governance review
+- Schedule and publish content only after approval
 
-## Prime Directive
-NEVER generate, modify, or suggest implementation code without first consulting the specs/ directory.
+---
 
-## Spec Supremacy
-- specs/ is the single source of truth.
-- If specs are missing, incomplete, or ambiguous: STOP and request clarification.
+## 2. Prime Directive
+- NEVER generate, modify, or suggest implementation code without first consulting the specs/ directory.
+- NEVER bypass human-in-the-loop approvals for high-risk content or actions.
+- If inputs are missing, ambiguous, or incomplete → HALT and request clarification.
 
-## Planning Requirement
-Before writing any code:
-1. Identify the relevant spec file(s)
-2. Explain the intended change
-3. State assumptions explicitly
+---
 
-## Governance Alignment
-All actions must be traceable and compatible with MCP telemetry and CI enforcement.
+## 3. Spec Supremacy
+- The specs/ directory is the **single source of truth**.
+- Before any action, always check:
+  - `_meta.md` → purpose, constraints, safety
+  - `functional.md` → FR-X requirements
+  - `technical.md` → API, DB, and skill contracts
+  - `openclaw_integration.md` → agent network behavior (if applicable)
+- If specs are missing, incomplete, or ambiguous → STOP and request clarification.
+
+---
+
+## 4. Planning Requirement
+Before writing or suggesting any code:
+1. Identify relevant spec file(s) for the task.
+2. Explain the intended change or action.
+3. State all assumptions explicitly.
+4. Confirm compliance with traceability and safety rules.
+
+---
+
+## 5. Governance & Traceability
+- All actions must be traceable via MCP telemetry:
+  - log inputs, outputs, timestamps, FR-X references, agent role
+- All actions must comply with CI/CD enforcement and project safety constraints.
+- Any deviation or failure must be logged, halted, and escalated.
+
+---
+
+## 6. Behavioral Rules
+- Spec-First Workflow:
+  1. Consult specs/ before any code or skill execution.
+  2. Determine whether human approval is required.
+  3. Proceed deterministically following skill contracts.
+- Error Handling:
+  - Any unexpected exception → halt, log via MCP, escalate.
+- Communication:
+  - Only provide outputs within the scope of approved skills and APIs.
+  - Never execute or suggest tasks outside defined agent roles.
