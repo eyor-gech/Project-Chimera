@@ -2,19 +2,56 @@ name: Chimera CI
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
+      - dev
   pull_request:
+    branches:
+      - main
+      - dev
 
 jobs:
-  test:
+  test-and-govern:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v3
-      - name: Setup Python
+      # 1️⃣ Checkout code
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # 2️⃣ Set up Python
+      - name: Set up Python 3.12
         uses: actions/setup-python@v4
         with:
           python-version: 3.12
+
+      # 3️⃣ Install dependencies
       - name: Install dependencies
-        run: make setup
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      # 4️⃣ Run tests via Makefile
       - name: Run tests
         run: make test
+
+      # 5️⃣ Run spec checks (Optional)
+      - name: Verify spec directory
+        run: |
+          if [ ! -d "specs" ]; then
+            echo "Specs missing! Failing CI."
+            exit 1
+          fi
+
+      # 6️⃣ AI Governance Simulation (CodeRabbit)
+      - name: Run AI Governance Checks
+        run: |
+          if [ ! -f ".coderabbit.yaml" ]; then
+            echo "CodeRabbit config missing! Failing CI."
+            exit 1
+          fi
+          echo "AI Governance checks passed (simulated)"
+
+      # 7️⃣ Optional lint
+      - name: Lint code
+        run: make lint
