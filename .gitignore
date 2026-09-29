@@ -2,3 +2,12 @@
 runtime/__pycache__/
 skills/__pycache__/
 tests/__pycache__/
+__pycache__/
+.pytest_cache/
+*.pyc
+
+# Secrets — never commit real credentials (see .env.example)
+.env
+
+# Generated artifacts (see dump_results.py)
+generated_drafts.json

@@ -1,0 +1,13 @@
+# Keep secrets and local noise out of the Docker build context.
+# Without this, `COPY . /app` would bake .env (and the OpenRouter API key)
+# into the image layer. See Dockerfile + specs/_meta.md (safety constraints).
+.env
+.env.*
+!.env.example
+.git
+.github
+.venv
+__pycache__
+*.pyc
+.pytest_cache
+*.pdf

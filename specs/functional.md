@@ -43,6 +43,9 @@ Responsible for reviewing content and publishing approved content to defined pla
 - **FR-6**  
   As a Content Generation Agent, I must produce content drafts that are reviewable and traceable to their originating trend.
 
+- **FR-16**  
+  As a Content Generation Agent, I must base a draft on the analysed source material of its trend — the linked article content and its top comments — rather than on the headline alone, so that content reflects the actual subject and does not invent facts the source does not support. When no source material can be read, the draft must record that it was not grounded rather than implying it was.
+
 ---
 
 ### Safety and Governance

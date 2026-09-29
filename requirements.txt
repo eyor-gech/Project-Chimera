@@ -1,1 +1,18 @@
+# Project Chimera — runtime + test dependencies
+# Spec reference: specs/technical.md (API contracts), specs/_meta.md (governance)
+
+# --- Test / TDD harness (Task 3.1: failing tests define the "empty slot") ---
 pytest
+
+# --- LLM access for skill_generate_content (OpenRouter, OpenAI-compatible) ---
+openai
+
+# --- Environment loading (.env) for OPENROUTER_API_KEY ---
+python-dotenv
+
+# --- Structured-output validation for generated drafts ---
+pydantic
+
+# --- UI and Networking ---
+requests
+streamlit
