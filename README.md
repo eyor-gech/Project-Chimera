@@ -217,6 +217,3 @@ This project is internal for demonstration purposes and may include proprietary 
 2. The **copilot questions section** is perfect for your video demo — you can ask these live and show how the agent responds.
 3. The structure is **submission-ready**, professional, and clearly shows **traceability** and **human-in-the-loop safety principles**.  
 
----
-
-If you want, I can also **draft a “video cues table”** that combines the README, Docker, Makefile, failing tests, and copilot questions so you can read your **voice-over script seamlessly** during your 5-minute Loom video.  
